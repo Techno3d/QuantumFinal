@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpcf0vdw4vy0c"]
+
+[ext_resource type="Shader" path="res://shaders/plane_waves.gdshader" id="1_jw2jg"]
+[ext_resource type="Script" path="res://plane.gd" id="2_i72ka"]
+[ext_resource type="Script" path="res://Move.gd" id="3_5o47v"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_nj53k"]
+size = Vector2(40, 40)
+subdivide_width = 500
+subdivide_depth = 500
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ohb5n"]
+render_priority = 0
+shader = ExtResource("1_jw2jg")
+shader_parameter/pos = Vector3(0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_7cj03"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_nj53k")
+surface_material_override/0 = SubResource("ShaderMaterial_ohb5n")
+script = ExtResource("2_i72ka")
+
+[node name="Particle" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_7cj03")
+script = ExtResource("3_5o47v")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.90707, 0.420979, 0, -0.420979, 0.90707, 0.614657, 5.85223, 13.1583)
+fov = 75.3518
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.558142, 0, 0, 0, 0.558142, 0, 0, 0, 0.558142, 0, 3.08751, 2.72641)
+omni_range = 11.4827
