@@ -15,7 +15,7 @@ void fragment() {
 	vec2 st = UV*2.-1.;
 	vec3 col = vec3(0.);
 	for(int i = 0; i < 15; i++) {
-		col = vec3(smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y)) );
+		col += vec3(1.-smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y)) );
 	}
 	ALBEDO = col;
 }

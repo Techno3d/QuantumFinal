@@ -10,4 +10,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	t+=delta;
-	position = Vector3(2*sin(t), 0.5, 2*cos(t))
+	position = Vector3(10*sin(t), 0.5, 10*cos(t))
