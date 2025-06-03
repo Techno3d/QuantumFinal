@@ -19,11 +19,18 @@ void vertex() {
 
 void fragment() {
 	vec2 st = UV*2.-1.;
-	vec3 col = vec3(0.);
+	float height = 0.;
 	for(int i = 0; i < 15; i++) {
-		col += vec3(1.-smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y)) );
+		vec2 dir = vec2(1., 0.);
+		if(dot(dir, normalized[i].xz) > 0.) {
+			vec2 center = normalized[i].xz / length(normalized[i].xz);
+			center *= 1./center.x;
+			float goofyDist = distance(st, center);
+			height += 1.-smoothstep(0., 0.005, abs(goofyDist)-pos[i].y);
+		}
+		//height += 1.-smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y));
 	}
-	ALBEDO = col;
+	ALBEDO = vec3(height);
 }
 
 //void light() {
