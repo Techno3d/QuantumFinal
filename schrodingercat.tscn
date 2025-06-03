@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://cutdkxxgy616l"]
+
+[ext_resource type="Script" uid="uid://81gjjrkfe6n6" path="res://Pivot.gd" id="1_qtllf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtllf"]
+
+[sub_resource type="Sky" id="Sky_hrrnj"]
+sky_material = SubResource("ProceduralSkyMaterial_qtllf")
+
+[sub_resource type="Environment" id="Environment_usvoc"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_hrrnj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrrnj"]
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h652c"]
+material = SubResource("StandardMaterial3D_hrrnj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usvoc"]
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_h652c"]
+material = SubResource("StandardMaterial3D_usvoc")
+size = Vector2(2, 2)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Agent Container" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = -64.0
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Agent Container"]
+
+[node name="Cat Container" type="SubViewportContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Control/Cat Container"]
+
+[node name="Agent Camera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, -0.819152, 0.573576, 0, 0.573576, 0.819152, -1, 3.58063e-08, -2.50718e-08, 1.5, 3.8, 0)
+current = true
+
+[node name="Cat Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_usvoc")
+
+[node name="Debounce Timer" type="Timer" parent="."]
+wait_time = 0.8
+
+[node name="Box Center" type="Node3D" parent="."]
+
+[node name="Box Floor" type="MeshInstance3D" parent="Box Center"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_h652c")
+
+[node name="Wall" type="MeshInstance3D" parent="Box Center"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -1)
+mesh = SubResource("QuadMesh_h652c")
+
+[node name="Wall2" type="MeshInstance3D" parent="Box Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+mesh = SubResource("QuadMesh_h652c")
+
+[node name="Wall3" type="MeshInstance3D" parent="Box Center"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 1, 0)
+mesh = SubResource("QuadMesh_h652c")
+
+[node name="Wall4" type="MeshInstance3D" parent="Box Center"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 1, 0)
+mesh = SubResource("QuadMesh_h652c")
+
+[node name="Top Pivot" type="Node3D" parent="Box Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
+script = ExtResource("1_qtllf")
+
+[node name="Top" type="MeshInstance3D" parent="Box Center/Top Pivot"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, 0, 0)
+mesh = SubResource("QuadMesh_h652c")
+skeleton = NodePath("../..")
+
+[connection signal="timeout" from="Debounce Timer" to="Box Center/Top Pivot" method="_on_debounce_timer_timeout"]
