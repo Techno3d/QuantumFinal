@@ -1,8 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpcf0vdw4vy0c"]
 
+<<<<<<< HEAD:PilotWaveDoubleSlit.tscn
 [ext_resource type="Shader" path="res://shaders/plane_waves.gdshader" id="1_bls8o"]
 [ext_resource type="Script" path="res://plane.gd" id="2_gvxj7"]
 [ext_resource type="Script" path="res://Move.gd" id="3_obovc"]
+=======
+[ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jw2jg"]
+[ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://plane.gd" id="2_i72ka"]
+[ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://Move.gd" id="3_5o47v"]
+>>>>>>> refs/remotes/origin/master:Main.tscn
 
 [sub_resource type="QuadMesh" id="QuadMesh_nj53k"]
 size = Vector2(40, 40)
