@@ -9,23 +9,16 @@ void vertex() {
 	normalized = (inverse(MODEL_MATRIX)*vec4(funnyPos, 1.0)).xyz/20.;
 }
 
-float ploty(vec2 st, float pct){
-  return  smoothstep( pct-0.02, pct, st.y) -
-          smoothstep( pct, pct+0.02, st.y);
-}
-float plotx(vec2 st, float pct){
-  return  smoothstep( pct-0.02, pct, st.x) -
-          smoothstep( pct, pct+0.02, st.x);
-}
-
 void fragment() {
 	vec2 st = UV*2.-1.;
-	st -= normalized.xz;
+	//st -= normalized.xz;
 	float a = 0.;
 
 	//a += ploty(st, cos(st.x+TIME));
 	float r = 0.25;
-	ALBEDO = vec3(smoothstep(r, r+0.01, st.x*st.x + st.y*st.y));
+	float angle = atan(st.y, st.x);
+	//ALBEDO = vec3(smoothstep(r, r+0.01, st.x*st.x + st.y*st.y));
+	ALBEDO = vec3(smoothstep(0., 0.005, abs(distance(st, normalized.xz)-pos.y)) );
 }
 
 //void light() {
