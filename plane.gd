@@ -4,8 +4,8 @@ extends MeshInstance3D
 var stored_poses: Array[Vector3];
 
 func _ready():
-	for i in range(0, 20):
-		stored_poses.push_back(Vector3(0, 2.0/20.0*i, 0));
+	for i in range(0, 15):
+		stored_poses.push_back(Vector3(0, 2.0/15.0*i, 0));
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
