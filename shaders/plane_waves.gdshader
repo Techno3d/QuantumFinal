@@ -1,24 +1,23 @@
 shader_type spatial;
 
-uniform vec3 pos;
-varying vec3 normalized;
+uniform vec3[20] pos;
+varying flat vec3[20] normalized;
 
 void vertex() {
-	vec3 funnyPos = pos;
-	funnyPos.y = 0.;
-	normalized = (inverse(MODEL_MATRIX)*vec4(funnyPos, 1.0)).xyz/20.;
+	for(int i = 0; i < 20; i++) {
+		vec3 funnyPos = pos[i];
+		funnyPos.y = 0.;
+		normalized[i] = (inverse(MODEL_MATRIX)*vec4(funnyPos, 1.0)).xyz/20.;
+	}
 }
 
 void fragment() {
 	vec2 st = UV*2.-1.;
-	//st -= normalized.xz;
-	float a = 0.;
-
-	//a += ploty(st, cos(st.x+TIME));
-	float r = 0.25;
-	float angle = atan(st.y, st.x);
-	//ALBEDO = vec3(smoothstep(r, r+0.01, st.x*st.x + st.y*st.y));
-	ALBEDO = vec3(smoothstep(0., 0.005, abs(distance(st, normalized.xz)-pos.y)) );
+	vec3 col = vec3(0.);
+	for(int i = 0; i < 20; i++) {
+		col = vec3(smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y)) );
+	}
+	ALBEDO = col;
 }
 
 //void light() {

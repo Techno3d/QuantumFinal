@@ -1,16 +1,18 @@
 extends MeshInstance3D
 
 @onready var particle: MeshInstance3D = $"../Particle"
-var stored_pos: Vector3 = Vector3(0, 0, 0);
+var stored_poses: Array[Vector3];
 
 func _ready():
-	pass # Replace with function body.
+	for i in range(0, 20):
+		stored_poses.push_back(Vector3(0, 2.0/20.0*i, 0));
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	stored_pos.y += delta
-	if stored_pos.y > 2:
-		stored_pos = particle.global_position
-		stored_pos.y = 0
-	get_surface_override_material(0).set_shader_parameter("pos", stored_pos);
+	for stored_pos in stored_poses:
+		stored_pos.y += delta
+		if stored_pos.y > 2:
+			stored_pos = particle.global_position
+			stored_pos.y = 0
+	get_surface_override_material(0).set_shader_parameter("pos", stored_poses);
