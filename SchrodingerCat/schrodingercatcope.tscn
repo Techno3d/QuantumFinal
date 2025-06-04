@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgtg2hr2ulpth"]
+[gd_scene load_steps=7 format=3 uid="uid://bgtg2hr2ulpth"]
 
 [ext_resource type="PackedScene" uid="uid://bnh5hj1glvwif" path="res://SchrodingerCat/schrodingercatbase.tscn" id="1_3r5dn"]
 [ext_resource type="Texture2D" uid="uid://dn70ffo084ojn" path="res://SchrodingerCat/Question Mark.png" id="2_iedcj"]
@@ -13,13 +13,18 @@ func _process(delta):
 	self.rotate(Vector3.UP, speed * delta)
 "
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pet42"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sjkn"]
+transparency = 1
 albedo_texture = ExtResource("2_iedcj")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kow1s"]
 size = Vector2(75, 150)
 
-[node name="Node3D" instance=ExtResource("1_3r5dn")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pet42"]
+transparency = 1
+albedo_texture = ExtResource("2_iedcj")
+
+[node name="schrodingercatcope" instance=ExtResource("1_3r5dn")]
 
 [node name="Control Popup" parent="." index="0"]
 size = Vector2i(375, 155)
@@ -28,12 +33,12 @@ size = Vector2i(375, 155)
 text = "Basic Controls:
 Open Box - Press \"O\"
 Close Box - Press \"C\"
-Question Mark - Explanation"
+Explaination - Top Right"
 
 [node name="Explaination Popup" type="Window" parent="." index="1"]
 auto_translate_mode = 1
 initial_position = 1
-size = Vector2i(500, 250)
+size = Vector2i(500, 220)
 always_on_top = true
 
 [node name="Label" type="Label" parent="Explaination Popup" index="0"]
@@ -64,13 +69,16 @@ scale = Vector2(0.160831, 0.152046)
 layout_mode = 2
 texture_normal = ExtResource("2_iedcj")
 
+[node name="Debounce Timer" parent="." index="4"]
+wait_time = 0.9
+
 [node name="Image Pivot" type="Node3D" parent="Box Center" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136967, 0)
 script = SubResource("GDScript_vlp3b")
 
 [node name="Sprite3D" type="Sprite3D" parent="Box Center/Image Pivot" index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.85, 0)
-material_override = SubResource("StandardMaterial3D_pet42")
+material_override = SubResource("StandardMaterial3D_0sjkn")
 ignore_occlusion_culling = true
 gi_mode = 2
 transparent = false
