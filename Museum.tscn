@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4mnlhaicmn5f"]
+[gd_scene load_steps=4 format=3 uid="uid://c4mnlhaicmn5f"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7jw1t"]
+[ext_resource type="PackedScene" uid="uid://dwwjvs8xpdjh" path="res://Fbx/Chair.glb" id="1_xx41a"]
+[ext_resource type="PackedScene" uid="uid://7pr86jhon0wf" path="res://Fbx/Lights.glb" id="2_upo72"]
+[ext_resource type="PackedScene" uid="uid://bm3bmygx2us45" path="res://Fbx/Podium.glb" id="3_ewrqf"]
 
 [node name="Node3D" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_7jw1t")
+[node name="Chair" parent="." instance=ExtResource("1_xx41a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8307, 0, 7.98954)
+
+[node name="Lights" parent="." instance=ExtResource("2_upo72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8665, 18.2206, -9.38678)
+
+[node name="Podium" parent="." instance=ExtResource("3_ewrqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66195, 8.93717, 0.521423)
