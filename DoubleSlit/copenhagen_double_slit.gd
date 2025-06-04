@@ -20,9 +20,9 @@ func spawn_particle():
 			var child: MeshInstance3D = particle.instantiate();
 			add_child(child)
 			child.position = Vector3(j+0.025, 0.5+randf_range(-0.4, 3), 10.2)
-			break;
+			# break
 
 
 
 func find_p_amp(x: float) -> float:
-	return (sin(32*PI*point1.distance_to(Vector2(x, 10.6))) + sin(32*PI*point2.distance_to(Vector2(x, 10.6))))/2.
+	return (sin(16*PI*point1.distance_to(Vector2(x, 10.6))) + sin(16*PI*point2.distance_to(Vector2(x, 10.6))))/2.
