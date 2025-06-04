@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnatyf8845olp"]
+
+[ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jxgr0"]
+[ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/plane.gd" id="2_lh1gt"]
+[ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://DoubleSlit/Move.gd" id="3_s3gby"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pxd2j"]
+size = Vector2(40, 40)
+subdivide_width = 40
+subdivide_depth = 40
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfm8a"]
+render_priority = 0
+shader = ExtResource("1_jxgr0")
+shader_parameter/pos = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_y48nb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_pxd2j")
+surface_material_override/0 = SubResource("ShaderMaterial_dfm8a")
+script = ExtResource("2_lh1gt")
+
+[node name="Particle" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_y48nb")
+script = ExtResource("3_s3gby")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-3.43801e-08, -0.617558, 0.786526, -2.69943e-08, 0.786526, 0.617558, -1, 0, -4.37114e-08, 21.6358, 11.7967, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6293, 0)
+light_energy = 10.0
+omni_range = 23.1463

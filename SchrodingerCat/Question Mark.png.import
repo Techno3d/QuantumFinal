@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj0j2nter8tso"
-path.s3tc="res://.godot/imported/Elephant.png-c27cd3169ae5978ddfffc47131700c4c.s3tc.ctex"
+uid="uid://dn70ffo084ojn"
+path.s3tc="res://.godot/imported/Question Mark.png-ffd5ae1648165d896a3d05dc56c6e691.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Fbx/Elephant.png"
-dest_files=["res://.godot/imported/Elephant.png-c27cd3169ae5978ddfffc47131700c4c.s3tc.ctex"]
+source_file="res://SchrodingerCat/Question Mark.png"
+dest_files=["res://.godot/imported/Question Mark.png-ffd5ae1648165d896a3d05dc56c6e691.s3tc.ctex"]
 
 [params]
 

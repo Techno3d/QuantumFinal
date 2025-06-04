@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgtg2hr2ulpth"]
+
+[ext_resource type="PackedScene" uid="uid://bnh5hj1glvwif" path="res://SchrodingerCat/schrodingercatbase.tscn" id="1_3r5dn"]
+[ext_resource type="Texture2D" uid="uid://dn70ffo084ojn" path="res://SchrodingerCat/Question Mark.png" id="2_iedcj"]
+
+[sub_resource type="GDScript" id="GDScript_vlp3b"]
+resource_name = "Pivot"
+script/source = "extends Node3D
+
+var speed : float = 5
+
+func _process(delta):
+	self.rotate(Vector3.UP, speed * delta)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pet42"]
+albedo_texture = ExtResource("2_iedcj")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kow1s"]
+size = Vector2(75, 150)
+
+[node name="Node3D" instance=ExtResource("1_3r5dn")]
+
+[node name="Control Popup" parent="." index="0"]
+size = Vector2i(375, 155)
+
+[node name="Label" parent="Control Popup" index="0"]
+text = "Basic Controls:
+Open Box - Press \"O\"
+Close Box - Press \"C\"
+Question Mark - Explanation"
+
+[node name="Explaination Popup" type="Window" parent="." index="1"]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(500, 250)
+always_on_top = true
+
+[node name="Label" type="Label" parent="Explaination Popup" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "The Copenhagen Interpretation runs into problems when performing the Schrodinger's Cat Experiment because it is unclear who collapses the wave function. This is known as the measurement problem."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Spiltscreen" index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91
+anchor_top = 0.045
+anchor_right = 0.985
+anchor_bottom = 0.171
+offset_left = -0.320068
+offset_top = -0.160002
+offset_right = 453.28
+offset_bottom = 458.192
+scale = Vector2(0.160831, 0.152046)
+
+[node name="Explain Button" type="TextureButton" parent="Spiltscreen/CenterContainer" index="0"]
+layout_mode = 2
+texture_normal = ExtResource("2_iedcj")
+
+[node name="Image Pivot" type="Node3D" parent="Box Center" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136967, 0)
+script = SubResource("GDScript_vlp3b")
+
+[node name="Sprite3D" type="Sprite3D" parent="Box Center/Image Pivot" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_pet42")
+ignore_occlusion_culling = true
+gi_mode = 2
+transparent = false
+texture = SubResource("PlaceholderTexture2D_kow1s")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Box Center/Image Pivot" index="1"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.85, 0)
+material_override = SubResource("StandardMaterial3D_pet42")
+ignore_occlusion_culling = true
+gi_mode = 2
+transparent = false
+texture = SubResource("PlaceholderTexture2D_kow1s")
+
+[connection signal="close_requested" from="Control Popup" to="." method="_on_control_popup_close_requested"]
+[connection signal="close_requested" from="Explaination Popup" to="." method="_on_explaination_popup_close_requested"]
+[connection signal="close_requested" from="Explaination Popup" to="." method="_on_window_close_requested"]
+[connection signal="pressed" from="Spiltscreen/CenterContainer/Explain Button" to="." method="_on_explain_button_pressed"]
