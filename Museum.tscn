@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4mnlhaicmn5f"]
+[gd_scene load_steps=11 format=3 uid="uid://c4mnlhaicmn5f"]
 
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
 [ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="3_xx41a"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://pp7l6ctm5pjw" path="res://Models/Cat/cat.tscn" id="7_n4p8j"]
 [ext_resource type="PackedScene" uid="uid://c2kpily1mil4x" path="res://Models/marble_wall.tscn" id="8_qfqip"]
 [ext_resource type="PackedScene" uid="uid://dwwjvs8xpdjh" path="res://Models/Chair.glb" id="9_1vajv"]
+[ext_resource type="PackedScene" uid="uid://c3l3durd5q7lk" path="res://Models/Lights/lights.tscn" id="10_qfqip"]
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276243, 0.000522903, 0.000276269, 1, 0, 0, 0)
 
 [node name="Plaque" parent="." instance=ExtResource("2_upo72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687551, 0, 10.4795)
@@ -28,7 +30,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.271
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19374, 4.35889, -9.87129)
 
 [node name="cat" parent="." instance=ExtResource("7_n4p8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50658, 5.56467, 9.90139)
+transform = Transform3D(0.999981, -0.00537216, -0.00287167, 0.00535515, 0.999968, -0.0058996, 0.00290328, 0.00588412, 0.999978, 4.50658, 5.56467, 9.90139)
 
 [node name="Wall" parent="." instance=ExtResource("7_77koe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0458097, 7.59081, 14.6501)
@@ -37,4 +39,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0458
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31531, 5.73209, 14.2688)
 
 [node name="Chair" parent="." instance=ExtResource("9_1vajv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41297, 1.20058, 8.1442)
+transform = Transform3D(1, 4.66969e-11, 0, -2.42295e-11, 2, 0, 0, 0, 1, 5.2395, 2.23666, 4.53031)
+
+[node name="Lights" parent="." instance=ExtResource("10_qfqip")]
+transform = Transform3D(-0.999194, -4.89157e-05, -0.0401486, -3.77832e-05, 1, -0.000277984, 0.0401486, -0.000276243, -0.999194, -1.1922, 12.1388, 6.01978)
