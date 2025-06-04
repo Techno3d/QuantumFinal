@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://wtv58msav5ho"]
+
+[ext_resource type="PackedScene" uid="uid://hveh6yiwul7s" path="res://Models/Wall/Wall.glb" id="1_iuee5"]
+[ext_resource type="Texture2D" uid="uid://bdowprq3u85qm" path="res://Models/Wall/WallDiffuse.png" id="2_xduj2"]
+[ext_resource type="Texture2D" uid="uid://culjus82lwoi5" path="res://Models/Wall/WallNormal.png" id="3_bbgl8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuee5"]
+albedo_texture = ExtResource("2_xduj2")
+normal_enabled = true
+normal_texture = ExtResource("3_bbgl8")
+
+[node name="Wall" instance=ExtResource("1_iuee5")]
+
+[node name="Cube_002" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0109673, 4.76837e-07, -0.0030756)
+material_override = SubResource("StandardMaterial3D_iuee5")

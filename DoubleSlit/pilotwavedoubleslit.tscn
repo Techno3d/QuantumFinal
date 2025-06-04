@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnatyf8845olp"]
+[gd_scene load_steps=7 format=3 uid="uid://cfc7abh44gc74"]
 
 [ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jxgr0"]
 [ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/Scripts/plane.gd" id="2_lh1gt"]

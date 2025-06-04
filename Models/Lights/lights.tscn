@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3l3durd5q7lk"]
+
+[ext_resource type="PackedScene" uid="uid://dxoh1teuxeae" path="res://Models/Lights/Lights.glb" id="1_vwko6"]
+
+[node name="Lights" instance=ExtResource("1_vwko6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, 0.00133944, -0.213473, 0.00158787)
+light_energy = 0.354
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, 6.15405, -0.220649, 0)
+light_energy = 0.354
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, -6.08589, -0.220649, 0)
+light_energy = 0.354
