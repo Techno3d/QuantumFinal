@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bnatyf8845olp"]
 
 [ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jxgr0"]
-[ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://Scripts/plane.gd" id="2_lh1gt"]
-[ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://Scripts/Move.gd" id="3_s3gby"]
+[ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/plane.gd" id="2_lh1gt"]
+[ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://DoubleSlit/Move.gd" id="3_s3gby"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pxd2j"]
 size = Vector2(40, 40)
