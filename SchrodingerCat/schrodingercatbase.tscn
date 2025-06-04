@@ -10,6 +10,13 @@ script/source = "extends Node3D
 func _ready():
 	explain.hide()
 	control.show()
+	if self.name == \"schrodingercatpilot\":
+		var decayTime = randi_range(0, 30)
+		var timer = get_tree().create_timer(decayTime)
+		timer.timeout.connect(decay)
+	
+func decay():
+	print(\"Decay\")
 
 func _on_control_popup_close_requested():
 	control.hide()
