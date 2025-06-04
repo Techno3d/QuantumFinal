@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2kpily1mil4x"]
+
+[ext_resource type="PackedScene" uid="uid://cur4wkvtubb8r" path="res://Models/MarbleWall.glb" id="1_grr62"]
+[ext_resource type="Texture2D" uid="uid://dj5y8gxr4vmyd" path="res://Models/MarbleWallDiffuse.png" id="2_k2g4c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ni7xm"]
+albedo_texture = ExtResource("2_k2g4c")
+roughness = 0.2
+
+[node name="MarbleWall" instance=ExtResource("1_grr62")]
+
+[node name="Cube_011" parent="." index="0"]
+transform = Transform3D(3.88124, 0, 0, 0, 3.88124, 0, 0, 0, 0.268827, 0.00552464, 0, 0.00273752)
+material_override = SubResource("StandardMaterial3D_ni7xm")

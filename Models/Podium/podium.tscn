@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://b31c7r5pmqkit"]
+
+[ext_resource type="PackedScene" uid="uid://bm3bmygx2us45" path="res://Models/Podium/Podium.glb" id="1_3lw1b"]
+[ext_resource type="Material" uid="uid://snnke6y2lnws" path="res://Models/Podium/PillarBaseMaterial.tres" id="2_i3r60"]
+[ext_resource type="Material" uid="uid://dmrf1t43ryr43" path="res://Models/Podium/PillarTopMaterial.tres" id="3_lsqxg"]
+
+[node name="Podium" instance=ExtResource("1_3lw1b")]
+
+[node name="NurbsPath" parent="." index="0"]
+material_override = ExtResource("2_i3r60")
+
+[node name="BézierCurve" parent="." index="1"]
+transform = Transform3D(0.323873, 0, 0, 0, 0.323873, 0, 0, 0, 0.394249, -0.00557041, 0.565033, 0.00304294)
+material_override = ExtResource("3_lsqxg")

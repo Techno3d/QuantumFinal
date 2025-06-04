@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj0j2nter8tso"
-path.s3tc="res://.godot/imported/Elephant.png-c27cd3169ae5978ddfffc47131700c4c.s3tc.ctex"
+uid="uid://ciyscob1bmlda"
+path.s3tc="res://.godot/imported/PillarTopDiffuse.png-b3a15e7c62c651726c94934e514d4d90.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Fbx/Elephant.png"
-dest_files=["res://.godot/imported/Elephant.png-c27cd3169ae5978ddfffc47131700c4c.s3tc.ctex"]
+source_file="res://Models/Podium/PillarTopDiffuse.png"
+dest_files=["res://.godot/imported/PillarTopDiffuse.png-b3a15e7c62c651726c94934e514d4d90.s3tc.ctex"]
 
 [params]
 

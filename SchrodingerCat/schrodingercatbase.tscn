@@ -1,6 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://cutdkxxgy616l"]
+[gd_scene load_steps=10 format=3 uid="uid://bnh5hj1glvwif"]
 
-[ext_resource type="Script" uid="uid://81gjjrkfe6n6" path="res://Pivot.gd" id="1_qtllf"]
+[sub_resource type="GDScript" id="GDScript_iibv0"]
+resource_name = "SchrodingerCatBaseScript"
+script/source = "extends Node3D
+
+@onready var control : Window = $\"Control Popup\"
+@onready var explain : Window = $\"Explaination Popup\"
+
+func _ready():
+	explain.hide()
+	control.show()
+	if self.name == \"schrodingercatpilot\":
+		var decayTime = randi_range(0, 30)
+		var timer = get_tree().create_timer(decayTime)
+		timer.timeout.connect(decay)
+	
+func decay():
+	print(\"Decay\")
+
+func _on_control_popup_close_requested():
+	control.hide()
+	control.queue_free()
+	
+func _on_explaination_popup_close_requested():
+	explain.hide()
+	
+func _on_explain_button_pressed():
+	explain.show()
+"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtllf"]
 
@@ -14,18 +41,64 @@ sky = SubResource("Sky_hrrnj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrrnj"]
 cull_mode = 2
+metallic_specular = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h652c"]
 material = SubResource("StandardMaterial3D_hrrnj")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_usvoc"]
 cull_mode = 2
+metallic_specular = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_h652c"]
 material = SubResource("StandardMaterial3D_usvoc")
 size = Vector2(2, 2)
 
+[sub_resource type="GDScript" id="GDScript_miey0"]
+resource_name = "Pivot Script"
+script/source = "extends Node3D
+
+@onready var pivot = self
+@onready var timer = $\".\".get_parent_node_3d().get_parent_node_3d().get_node(\"Debounce Timer\")
+var debounce = false;
+
+func _process(_delta: float) -> void:
+	var isClosed = pivot.rotation_degrees == Vector3(0, 0, 0)
+	if Input.is_action_just_pressed(\"Open Box\") and not debounce and isClosed:
+		var tween = get_tree().create_tween()
+		timer.start()
+		debounce = true;
+		tween.tween_property(pivot, \"rotation_degrees\", Vector3(0, 0, 90), 1)
+	if Input.is_action_just_pressed(\"Close Box\") and not debounce and not isClosed:
+		var tween = get_tree().create_tween()
+		timer.start()
+		debounce = true;
+		tween.tween_property(pivot, \"rotation_degrees\", Vector3(0, 0, 0), 1)
+
+func _on_debounce_timer_timeout() -> void:
+	debounce = false;
+"
+
 [node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_iibv0")
+
+[node name="Control Popup" type="Window" parent="."]
+initial_position = 1
+size = Vector2i(350, 125)
+always_on_top = true
+
+[node name="Label" type="Label" parent="Control Popup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Basic Controls:
+Open Box - Press \"O\"
+Close Box - Press \"C\""
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Spiltscreen" type="Control" parent="."]
 layout_mode = 3
@@ -105,11 +178,12 @@ mesh = SubResource("QuadMesh_h652c")
 
 [node name="Top Pivot" type="Node3D" parent="Box Center"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0)
-script = ExtResource("1_qtllf")
+script = SubResource("GDScript_miey0")
 
 [node name="Top" type="MeshInstance3D" parent="Box Center/Top Pivot"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, 0, 0)
 mesh = SubResource("QuadMesh_h652c")
 skeleton = NodePath("../..")
 
+[connection signal="close_requested" from="Control Popup" to="." method="_on_window_close_requested"]
 [connection signal="timeout" from="Debounce Timer" to="Box Center/Top Pivot" method="_on_debounce_timer_timeout"]

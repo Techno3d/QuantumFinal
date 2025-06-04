@@ -7,7 +7,6 @@ func _ready():
 	for i in range(0, 15):
 		stored_poses.push_back(Vector3(0, 0.4/15.0*i, 0));
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	for i in range(0, stored_poses.size()):
