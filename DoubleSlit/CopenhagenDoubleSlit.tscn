@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2wwfv0oe44f2"]
+
+[ext_resource type="Script" uid="uid://eh4oeu76yhxh" path="res://DoubleSlit/copenhagen_double_slit.gd" id="1_imfc4"]
+[ext_resource type="Shader" uid="uid://df4bq0r8t8ie7" path="res://shaders/CHPlanes.gdshader" id="1_qcf3r"]
+[ext_resource type="Shader" uid="uid://bffnhyofgbfww" path="res://shaders/CopenhagenDiffraction.gdshader" id="2_jhprl"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a7le2"]
+size = Vector2(20, 30)
+subdivide_width = 200
+subdivide_depth = 300
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jhprl"]
+render_priority = 0
+shader = ExtResource("1_qcf3r")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qcf3r"]
+size = Vector2(20, 10)
+subdivide_width = 100
+subdivide_depth = 100
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_imfc4"]
+render_priority = 0
+shader = ExtResource("2_jhprl")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhprl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7le2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qcf3r"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_imfc4")
+
+[node name="PlaneWave" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+mesh = SubResource("PlaneMesh_a7le2")
+surface_material_override/0 = SubResource("ShaderMaterial_jhprl")
+
+[node name="Diffraction" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.06127, 0, 0, 5.31105)
+mesh = SubResource("PlaneMesh_qcf3r")
+surface_material_override/0 = SubResource("ShaderMaterial_imfc4")
+
+[node name="DoubleSlitWalls" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.18785, 0, 0, 0, 1, 0, 0, 0, 0.208455, 5.89585, 0, -0.00243114)
+mesh = SubResource("BoxMesh_jhprl")
+
+[node name="DoubleSlitWalls2" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.188, 0, 0, 0, 0.862, 0, 0, 0, 0.179, -5.85276, 0, -0.00243114)
+mesh = SubResource("BoxMesh_jhprl")
+
+[node name="Slit" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.86574, 0, 0, 0, 1, 0, 0, 0, 0.208455, -0.00495796, -0.00483942, -0.00435188)
+mesh = SubResource("BoxMesh_a7le2")
+
+[node name="Screen" type="MeshInstance3D" parent="."]
+transform = Transform3D(19.8299, 0, 0, 0, 5.25821, 0, 0, 0, 1, 0, 2.62875, 10.5974)
+mesh = SubResource("BoxMesh_qcf3r")
+
+[node name="ScreenCopy" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.64059e-07, -4.5394, -0.498426, 0, -2.62083, 0.863298, -19.7674, 1.98423e-07, 2.17869e-08, 18.9851, 2.94275, -6.04977)
+mesh = SubResource("BoxMesh_qcf3r")
+skeleton = NodePath("../Screen")
+
+[node name="ParticleMeasureTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.6632e-06, 0.776123, -0.630581, 5.7395e-06, 0.630581, 0.776123, 1, 0, -7.39508e-06, -10.7234, 8.11216, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.1623)
