@@ -7,13 +7,10 @@ script/source = "extends Node3D
 @onready var control : Window = $\"Control Popup\"
 @onready var explain : Window = $\"Explaination Popup\"
 
+
 func _ready():
 	explain.hide()
 	control.show()
-	if self.name == \"schrodingercatpilot\":
-		var decayTime = randi_range(0, 30)
-		var timer = get_tree().create_timer(decayTime)
-		timer.timeout.connect(decay)
 	
 func decay():
 	print(\"Decay\")
@@ -21,6 +18,10 @@ func decay():
 func _on_control_popup_close_requested():
 	control.hide()
 	control.queue_free()
+	if self.name == \"schrodingercatpilot\":
+		var decayTime = randi_range(5, 20)
+		var timer = get_tree().create_timer(decayTime)
+		timer.timeout.connect(decay)	
 	
 func _on_explaination_popup_close_requested():
 	explain.hide()
