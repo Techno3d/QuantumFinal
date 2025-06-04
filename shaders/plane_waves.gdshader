@@ -21,14 +21,14 @@ void fragment() {
 	vec2 st = UV*2.-1.;
 	float height = 0.;
 	for(int i = 0; i < 15; i++) {
-		vec2 dir = vec2(1., 0.);
-		if(dot(dir, normalized[i].xz) > 0.) {
-			vec2 center = normalized[i].xz / length(normalized[i].xz);
-			center *= 1./center.x;
-			float goofyDist = distance(st, center);
-			height += 1.-smoothstep(0., 0.005, abs(goofyDist)-pos[i].y);
-		}
+		//vec2 dir = vec2(1., 0.);
+		//if(dot(dir, normalized[i].xz) > 0.) {
+			//vec2 center = normalize(normalized[i].xz); //Normalized
+			//center *= 1./center.x; //Scale x to 1
+			//height += 1.-smoothstep(0., 0.005, abs(distance(st, center))-pos[i].y);
+		//}
 		//height += 1.-smoothstep(0., 0.005, abs(distance(st, normalized[i].xz)-pos[i].y));
+		height += sin(32.*3.141592*distance(st, normalized[i].xz))/2.0;
 	}
 	ALBEDO = vec3(height);
 }
