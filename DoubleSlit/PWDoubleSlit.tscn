@@ -6,14 +6,14 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_pxd2j"]
 size = Vector2(40, 40)
-subdivide_width = 40
-subdivide_depth = 40
+subdivide_width = 100
+subdivide_depth = 100
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfm8a"]
 render_priority = 0
 shader = ExtResource("1_jxgr0")
-shader_parameter/pos = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/pos = Vector3(0, 0, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_y48nb"]
 
@@ -25,11 +25,12 @@ surface_material_override/0 = SubResource("ShaderMaterial_dfm8a")
 script = ExtResource("2_lh1gt")
 
 [node name="Particle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2671, 0, 0)
 mesh = SubResource("SphereMesh_y48nb")
 script = ExtResource("3_s3gby")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.43801e-08, -0.617558, 0.786526, -2.69943e-08, 0.786526, 0.617558, -1, 0, -4.37114e-08, 21.6358, 11.7967, 0)
+transform = Transform3D(1, 0, 0, 0, 0.602108, 0.798415, 0, -0.798415, 0.602108, 0, 11.797, 21.636)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6293, 0)
