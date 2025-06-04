@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cldds853cg12a"
-path="res://.godot/imported/cat.fbx-e0e840a0790b33cf70ee7c3e877eb74d.scn"
+uid="uid://dwwjvs8xpdjh"
+path="res://.godot/imported/Chair.glb-36c9bcb7091c16498eba003648411cd4.scn"
 
 [deps]
 
-source_file="res://Fbx/cat.fbx"
-dest_files=["res://.godot/imported/cat.fbx-e0e840a0790b33cf70ee7c3e877eb74d.scn"]
+source_file="res://Fbx/Chair.glb"
+dest_files=["res://.godot/imported/Chair.glb-36c9bcb7091c16498eba003648411cd4.scn"]
 
 [params]
 
@@ -28,11 +28,10 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=true
+animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=0
-fbx/allow_geometry_helper_nodes=false
-fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1
