@@ -232,11 +232,11 @@ transform = Transform3D(1.6, -7.82616e-05, 0.000836645, 7.80304e-05, 1.6, 0.0004
 
 [node name="TeleporterCatCope" parent="." instance=ExtResource("23_k0m5h")]
 transform = Transform3D(2.00486, -9.80603e-05, 0.00104835, 9.77751e-05, 2.00486, 0.00055388, -0.00104837, -0.00055383, 2.00486, 5.22644, -0.00802409, 24.1273)
-teleportDestination = ExtResource("24_6qy77")
+teleportDestination = ExtResource("25_h8q7c")
 
 [node name="TeleporterCatPW" parent="." instance=ExtResource("23_k0m5h")]
 transform = Transform3D(2.00486, -9.80603e-05, 0.00104835, 9.77751e-05, 2.00486, 0.00055388, -0.00104837, -0.00055383, 2.00486, -4.83381, -0.00844157, 24.3973)
-teleportDestination = ExtResource("25_h8q7c")
+teleportDestination = ExtResource("24_6qy77")
 
 [node name="Node3D" parent="." instance=ExtResource("26_6osv0")]
 transform = Transform3D(-0.000522947, -4.89139e-05, 1, -0.000276269, 1, 4.8769e-05, -1, -0.000276245, -0.000522961, -11.28, 7.86488, -54.132)
