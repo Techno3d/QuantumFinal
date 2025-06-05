@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PilotWaveDemonstration"
-run/main_scene="uid://bnatyf8845olp"
+run/main_scene="uid://dmu4cjrykv0i5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4mnlhaicmn5f"]
+[gd_scene load_steps=24 format=3 uid="uid://dmu4cjrykv0i5"]
 
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
 [ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="3_xx41a"]
@@ -49,9 +49,9 @@ transform = Transform3D(-0.876223, 4.13506e-05, 0.481907, -0.000224896, 1, -0.00
 [node name="Podium" parent="." instance=ExtResource("3_xx41a")]
 transform = Transform3D(1.16329, 0.000144839, 0.545868, -0.000156745, 1.285, -6.9199e-06, -0.545868, -6.03209e-05, 1.16329, 6.98202, 4.67472, 26.3941)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+[node name="Floor#StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+[node name="Floor_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 8.7681e-12, 0, 1.12266e-12, 1, 5.82077e-11, 0, 0, 1, 0.0038456, 0.00203177, 7.35431)
 shape = SubResource("BoxShape3D_1vajv")
 
