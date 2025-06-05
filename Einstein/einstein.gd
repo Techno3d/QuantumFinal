@@ -7,11 +7,11 @@ extends Node3D
 func _ready():
     text_CH.hide()
     text_PW.hide()
-    area.body_entered.connect(func():
+    area.body_entered.connect(func(x):
         text_CH.show()
         text_PW.show()
     )
-    area.body_exited.connect(func():
+    area.body_exited.connect(func(x):
         text_CH.hide()
         text_PW.hide()
     )
