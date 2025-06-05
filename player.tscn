@@ -40,17 +40,14 @@ func _process(delta):
 	move = move.rotated(Vector3.UP, self.rotation.y)
 	self.velocity = move * speed * delta
 	
-	print(self.rotation_degrees.y)
-	
-	if move_and_slide():
-		pass
+	move_and_slide()
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

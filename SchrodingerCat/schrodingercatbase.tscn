@@ -7,6 +7,7 @@ script/source = "extends Node3D
 @onready var control : Window = $\"Control Popup\"
 @onready var explain : Window = $\"Explaination Popup\"
 
+@onready var museum : PackedScene = preload(\"res://Museum.tscn\")
 @onready var deadCat = preload(\"res://Models/Cat/deadcat.tscn\").instantiate()
 @onready var brokenPoison = preload(\"res://Models/evilPosion/brokenevilposion.tscn\").instantiate()
 
@@ -38,6 +39,9 @@ func _on_explaination_popup_close_requested():
 	
 func _on_explain_button_pressed():
 	explain.show()
+
+func _on_button_pressed():
+	get_tree().change_scene_to_packed(museum)
 "
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtllf"]
