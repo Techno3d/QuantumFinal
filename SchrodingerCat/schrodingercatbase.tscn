@@ -7,41 +7,26 @@ script/source = "extends Node3D
 @onready var control : Window = $\"Control Popup\"
 @onready var explain : Window = $\"Explaination Popup\"
 
-@onready var museum : PackedScene = preload(\"res://Museum.tscn\")
-@onready var deadCat = preload(\"res://Models/Cat/deadcat.tscn\").instantiate()
-@onready var brokenPoison = preload(\"res://Models/evilPosion/brokenevilposion.tscn\").instantiate()
-
 func _ready():
 	explain.hide()
 	control.show()
+	if self.name == \"schrodingercatpilot\":
+		var decayTime = randi_range(0, 30)
+		var timer = get_tree().create_timer(decayTime)
+		timer.timeout.connect(decay)
 	
 func decay():
-	var cat : Node3D = $\"Box Center/cat\"
-	var poison : Node3D = $\"EVILPOSION\"
-	
-	$\"Box Center\".add_child(deadCat)
-	$\"Box Center/deadcat\".transform = cat.transform
-	cat.queue_free()
-	
-	$\"Box Center\".add_child(brokenPoison)
-	poison.queue_free()
-	
+	print(\"Decay\")
+
 func _on_control_popup_close_requested():
 	control.hide()
 	control.queue_free()
-	if self.name == \"schrodingercatpilot\":
-		var decayTime = randi_range(3, 15)
-		var timer = get_tree().create_timer(decayTime)
-		timer.timeout.connect(decay)	
 	
 func _on_explaination_popup_close_requested():
 	explain.hide()
 	
 func _on_explain_button_pressed():
 	explain.show()
-
-func _on_button_pressed():
-	get_tree().change_scene_to_packed(museum)
 "
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qtllf"]
