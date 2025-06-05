@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eh4oeu76yhxh" path="res://DoubleSlit/Scripts/copenhagen_double_slit.gd" id="1_imfc4"]
 [ext_resource type="Shader" uid="uid://df4bq0r8t8ie7" path="res://shaders/CHPlanes.gdshader" id="1_qcf3r"]
-[ext_resource type="PackedScene" path="res://DoubleSlit/cam_pivot.tscn" id="2_10073"]
+[ext_resource type="PackedScene" uid="uid://fvpm24bfudny" path="res://DoubleSlit/cam_pivot.tscn" id="2_10073"]
 [ext_resource type="Shader" uid="uid://bffnhyofgbfww" path="res://shaders/CopenhagenDiffraction.gdshader" id="2_jhprl"]
 [ext_resource type="Script" path="res://DoubleSlit/Scripts/UI.gd" id="5_smjlk"]
 
