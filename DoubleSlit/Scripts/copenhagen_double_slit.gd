@@ -16,7 +16,7 @@ func spawn_particle():
 		var j = i/100.
 		# This is the trapezoidal reimann aproximation for the probability
 		var probs = (find_p_amp(j)*find_p_amp(j) + find_p_amp(j+0.05)*find_p_amp(j+0.05))
-		if randf() > probs and randf() > 0.8:
+		if randf() > probs and randf()>0.6:
 			var child: MeshInstance3D = particle.instantiate();
 			add_child(child)
 			child.position = Vector3(j+0.025, 0.5+randf_range(-0.4, 3), 10.2)
@@ -25,4 +25,5 @@ func spawn_particle():
 
 
 func find_p_amp(x: float) -> float:
-	return (sin(16*PI*point1.distance_to(Vector2(x, 10.6))) + sin(16*PI*point2.distance_to(Vector2(x, 10.6))))/2.
+	const B = 4
+	return (sin(B*PI*point1.distance_to(Vector2(x, 10.6))) + sin(B*PI*point2.distance_to(Vector2(x, 10.6))))/2.
