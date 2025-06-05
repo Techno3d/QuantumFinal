@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dmu4cjrykv0i5"]
+[gd_scene load_steps=29 format=3 uid="uid://dmu4cjrykv0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dx57gdwwba0w6" path="res://player.tscn" id="1_40gk3"]
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://duyj5pb5my6l8" path="res://Models/Pictures/Picture7.tscn" id="19_e5gq4"]
 [ext_resource type="PackedScene" uid="uid://of0eefiim1o4" path="res://Models/Pictures/Picture8.tscn" id="20_40gk3"]
 [ext_resource type="PackedScene" uid="uid://ctyck818engji" path="res://Einstein/einstein.tscn" id="22_2x2ox"]
+[ext_resource type="PackedScene" uid="uid://cg1adgslka0d5" path="res://teleporter.tscn" id="23_k0m5h"]
+[ext_resource type="PackedScene" uid="uid://bgtg2hr2ulpth" path="res://SchrodingerCat/schrodingercatcope.tscn" id="24_6qy77"]
+[ext_resource type="PackedScene" uid="uid://dro8gcrnojy8q" path="res://SchrodingerCat/schrodingercatpilot.tscn" id="25_h8q7c"]
 
 [sub_resource type="GDScript" id="GDScript_1vajv"]
 resource_name = "Museum"
@@ -46,7 +49,7 @@ transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276
 script = SubResource("GDScript_1vajv")
 
 [node name="Player" parent="." instance=ExtResource("1_40gk3")]
-transform = Transform3D(1.4, 4.27747e-12, 5.82077e-11, -3.52429e-12, 1.4, 2.91038e-11, 5.82077e-11, -5.82077e-11, 1.4, -0.000357951, 7.31837, -0.00202165)
+transform = Transform3D(-1.4, -0.000136937, 7.45703e-05, -0.000136978, 1.4, -0.000773477, -7.44947e-05, -0.000773484, -1.4, -0.000357951, 7.31837, -0.00202165)
 
 [node name="Plaque" parent="." instance=ExtResource("2_upo72")]
 transform = Transform3D(-0.876223, 4.13506e-05, 0.481907, -0.000224896, 1, -0.000494722, -0.481907, -0.000541865, -0.876223, -6.39237, 0.0776253, 27.1376)
@@ -214,3 +217,11 @@ transform = Transform3D(-4.3714e-08, 1.23919e-11, -1, 8.73115e-11, 1, -9.53548e-
 
 [node name="EinsteinBase" parent="." instance=ExtResource("22_2x2ox")]
 transform = Transform3D(1.6, -7.82616e-05, 0.000836645, 7.80304e-05, 1.6, 0.000442031, -0.000836667, -0.00044199, 1.6, -6.37497, 7.92073, -76.0439)
+
+[node name="TeleporterCatCope" parent="." instance=ExtResource("23_k0m5h")]
+transform = Transform3D(2.00486, -9.80603e-05, 0.00104835, 9.77751e-05, 2.00486, 0.00055388, -0.00104837, -0.00055383, 2.00486, 5.22644, -0.00802409, 24.1273)
+teleportDestination = ExtResource("24_6qy77")
+
+[node name="TeleporterCatPW" parent="." instance=ExtResource("23_k0m5h")]
+transform = Transform3D(2.00486, -9.80603e-05, 0.00104835, 9.77751e-05, 2.00486, 0.00055388, -0.00104837, -0.00055383, 2.00486, -4.83381, -0.00844157, 24.3973)
+teleportDestination = ExtResource("25_h8q7c")

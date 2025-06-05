@@ -8,10 +8,12 @@ func _ready():
     text_CH.hide()
     text_PW.hide()
     area.body_entered.connect(func(x):
-        text_CH.show()
-        text_PW.show()
+        if x.is_in_group("Player"):
+            text_CH.show()
+            text_PW.show()
     )
     area.body_exited.connect(func(x):
-        text_CH.hide()
-        text_PW.hide()
+        if x.is_in_group("Player"):
+            text_CH.hide()
+            text_PW.hide()
     )
