@@ -69,30 +69,6 @@ scale = Vector2(0.160831, 0.152046)
 layout_mode = 2
 texture_normal = ExtResource("2_iedcj")
 
-[node name="CenterContainer2" type="CenterContainer" parent="Spiltscreen" index="3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.788
-anchor_top = 0.881
-anchor_right = 0.983
-anchor_bottom = 0.971
-offset_left = 0.223938
-offset_top = 0.112
-offset_right = 5.58398
-offset_bottom = 1.79193
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Spiltscreen/CenterContainer2" index="0"]
-custom_minimum_size = Vector2(230, 60)
-layout_mode = 2
-color = Color(0.0962047, 0.0962048, 0.0962047, 1)
-
-[node name="Button" type="Button" parent="Spiltscreen/CenterContainer2" index="1"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Back to Museum"
-
 [node name="Debounce Timer" parent="." index="4"]
 wait_time = 0.9
 
@@ -120,4 +96,3 @@ texture = SubResource("PlaceholderTexture2D_kow1s")
 [connection signal="close_requested" from="Explaination Popup" to="." method="_on_window_close_requested"]
 [connection signal="close_requested" from="Explaination Popup" to="." method="_on_explaination_popup_close_requested"]
 [connection signal="pressed" from="Spiltscreen/CenterContainer/Explain Button" to="." method="_on_explain_button_pressed"]
-[connection signal="pressed" from="Spiltscreen/CenterContainer2/Button" to="." method="_on_button_pressed"]
