@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var teleportDestination : PackedScene
+@export var teleportDestination : PackedScene
 @onready var collider : Area3D = $"Collider"
 
 func _ready():
