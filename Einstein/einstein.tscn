@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctyck818engji"]
+
+[ext_resource type="Script" uid="uid://cdkl0dket5nt" path="res://Einstein/einstein.gd" id="1_w5siq"]
+[ext_resource type="PackedScene" uid="uid://brd37a414edws" path="res://Einstein/EinsteinBust.glb" id="2_lv3kv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ci048"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w5siq"]
+radius = 5.20911
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5siq"]
+transparency = 1
+albedo_color = Color(1, 0.47, 0.47, 0.658824)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_w5siq"]
+material = SubResource("StandardMaterial3D_w5siq")
+size = Vector2(2.5, 2)
+
+[node name="EinsteinBase" type="Node3D"]
+script = ExtResource("1_w5siq")
+
+[node name="Pedestal" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_ci048")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_w5siq")
+
+[node name="TextBackgroundCH" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87935, 1.17645, 0)
+visible = false
+mesh = SubResource("QuadMesh_w5siq")
+
+[node name="Label3D" type="Label3D" parent="TextBackgroundCH"]
+sorting_offset = 1.0
+billboard = 1
+double_sided = false
+text = "\"God does not play dice\" 
+(Albert Einstein)
+
+Einstein believed in a
+deterinistic universe. The
+newly emerging 
+Copenhagen interpretation 
+was not easy to accept."
+font_size = 29
+autowrap_mode = 2
+
+[node name="TextBackgroundPW" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90468, 1.17645, 0)
+visible = false
+mesh = SubResource("QuadMesh_w5siq")
+
+[node name="Label3D" type="Label3D" parent="TextBackgroundPW"]
+sorting_offset = 1.0
+billboard = 1
+double_sided = false
+text = "The fact that entanglement in the Copenhagen interpretation could cause changes faster than light annoyed Einstein. It also made him disregard Bohm's revision of Pilot Wave theory, where the guiding function relied on the position of all particles at the same time, no matter how far. Locality was truly gone."
+font_size = 29
+autowrap_mode = 2
+
+[node name="EinsteinBust" parent="." instance=ExtResource("2_lv3kv")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0, 2.00066, 0)
