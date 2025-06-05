@@ -1,3 +1,4 @@
+class_name Move
 extends MeshInstance3D
 
 var t: float = 0;

@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dvr11224cs1xi"]
+[gd_scene load_steps=11 format=3 uid="uid://c2wwfv0oe44f2"]
 
 [ext_resource type="Script" uid="uid://eh4oeu76yhxh" path="res://DoubleSlit/Scripts/copenhagen_double_slit.gd" id="1_imfc4"]
-[ext_resource type="Shader" path="res://shaders/CHPlanes.gdshader" id="1_qcf3r"]
-[ext_resource type="Shader" path="res://shaders/CopenhagenDiffraction.gdshader" id="2_jhprl"]
+[ext_resource type="Shader" uid="uid://df4bq0r8t8ie7" path="res://shaders/CHPlanes.gdshader" id="1_qcf3r"]
+[ext_resource type="Shader" uid="uid://bffnhyofgbfww" path="res://shaders/CopenhagenDiffraction.gdshader" id="2_jhprl"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a7le2"]
 size = Vector2(20, 30)
@@ -27,6 +27,7 @@ shader = ExtResource("2_jhprl")
 [sub_resource type="BoxMesh" id="BoxMesh_a7le2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qcf3r"]
+size = Vector3(40.0647, 7.67986, 0.9985)
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_imfc4")
