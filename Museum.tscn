@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c4mnlhaicmn5f"]
+[gd_scene load_steps=10 format=3 uid="uid://c4mnlhaicmn5f"]
 
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
 [ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="3_xx41a"]
@@ -43,26 +43,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4603, 3.65314, 9.71581)
 [node name="Floor" parent="." instance=ExtResource("4_upo72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.90195)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(1, 8.7681e-12, 0, 1.12266e-12, 1, 5.82077e-11, 0, 0, 1, 0.0038456, 0.00203177, 7.35431)
-shape = SubResource("BoxShape3D_1vajv")
-
 [node name="Picture" parent="." instance=ExtResource("5_n4p8j")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.27112, 6.1468, 13.822)
 
 [node name="Stairs" parent="." instance=ExtResource("6_jms4e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19374, 4.35889, -9.87129)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Stairs"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
-transform = Transform3D(1, -7.5417e-11, 0, -7.51896e-11, 0.999999, -6.1118e-10, 0, 0, 1, -7.69031, -4.34218, -4.97242)
-shape = SubResource("ConvexPolygonShape3D_1vajv")
-
 [node name="cat" parent="." instance=ExtResource("7_n4p8j")]
-transform = Transform3D(0.999981, -0.00537216, -0.00287167, 0.00535515, 0.999968, -0.0058996, 0.00290328, 0.00588412, 0.999978, 4.50658, 5.56467, 9.90139)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50658, 5.56467, 9.90139)
 
 [node name="Wall" parent="." instance=ExtResource("7_77koe")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0458097, 7.59081, 14.6501)
@@ -71,10 +59,4 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0458
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31531, 5.73209, 14.2688)
 
 [node name="Chair" parent="." instance=ExtResource("9_1vajv")]
-transform = Transform3D(1, 4.66969e-11, 0, -2.42295e-11, 2, 0, 0, 0, 1, 5.2395, 2.23666, 4.53031)
-
-[node name="Lights" parent="." instance=ExtResource("10_qfqip")]
-transform = Transform3D(-0.999194, -4.89157e-05, -0.0401486, -3.77832e-05, 1, -0.000277984, 0.0401486, -0.000276243, -0.999194, -1.1922, 12.1388, 6.01978)
-
-[node name="Player" parent="." instance=ExtResource("11_1vajv")]
-transform = Transform3D(2.5, -0.000122284, 0.00130726, 0.000121922, 2.5, 0.000690672, -0.00130729, -0.000690608, 2.5, 4.43073, 8.09106, 0.612065)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41297, 1.20058, 8.1442)
