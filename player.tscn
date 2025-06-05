@@ -26,6 +26,7 @@ func _process(delta):
 	currentRotation += deltaAngle
 	self.rotate(Vector3.DOWN, deltaAngle)
 	camera.rotate(Vector3.LEFT, (mouse.y / screenSize.y) * delta * sensitivity)
+	camera.rotation.x = clampf(camera.rotation.x, -PI / 2, PI / 2)
 	
 	var move = Vector3.ZERO
 	if Input.is_action_pressed(\"Forward\"):
