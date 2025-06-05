@@ -14,6 +14,8 @@ script/source = "extends Node3D
 func _ready():
 	explain.hide()
 	control.show()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 	
 func decay():
 	var cat : Node3D = $\"Box Center/cat\"
@@ -142,7 +144,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="Spiltscreen/Cat Container"]
 handle_input_locally = false
-size = Vector2i(384, 648)
+size = Vector2i(383, 648)
 render_target_update_mode = 4
 
 [node name="Cat Camera" type="Camera3D" parent="Spiltscreen/Cat Container/SubViewport"]

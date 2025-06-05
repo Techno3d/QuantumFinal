@@ -2,6 +2,9 @@ extends MeshInstance3D
 
 var stored_pos: Vector3;
 
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var particle: Move = get_tree().get_first_node_in_group("Particles")

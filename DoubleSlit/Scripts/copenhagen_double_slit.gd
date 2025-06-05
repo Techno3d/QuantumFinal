@@ -8,6 +8,8 @@ var particle: PackedScene = preload("res://DoubleSlit/particle.tscn")
 
 func _ready():
 	timer.timeout.connect(spawn_particle)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func spawn_particle():
 	var p_amp: float = find_p_amp(0);
