@@ -14,21 +14,21 @@ float funky(vec2 st) {
 	float height2 = (sin(32.*3.141592*distance(st, vec2(line, slit_pos+slit_width/2.))-TIME))
 		*clamp(1.-distance(st, vec2(line, +slit_pos+slit_width/2.))-0.2, 0., 1.)
 		*clamp(1.-distance(normalized.xz, vec2(line, slit_pos+slit_width/2.))-0.2, 0., 1.)/4.;
-	
+
 	height2 +=  sin(32.*3.141592*distance(st, vec2(line, -slit_pos-slit_width/2.))-TIME)
 		*clamp(1.-distance(st, vec2(line, -slit_pos-slit_width/2.))-0.2, 0., 1.)
 		*clamp(1.-distance(normalized.xz, vec2(line, -slit_pos-slit_width/2.))-0.2, 0., 1.)/4.;
-		
+
 	float height3 = sin(32.*3.141592*distance(st, normalized.xz)-TIME)/2.*distMult
 		*(step(line, st.x));
-	
+
 	//Reflections
 	// LR/(R+r) + normalized.x is the center for the reflection
 	float l = st.y-normalized.y;
 	float R = line-normalized.x;
 	float r = line-st.x;
 	vec2 reflectionCenter = vec2(line, l*R/(r+R) + normalized.y);
-	
+
 	height += sin(32.*3.141592*distance(st, reflectionCenter)-TIME)/2.
 		*(1.-distance(st, reflectionCenter))
 		*distMult
