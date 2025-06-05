@@ -53,6 +53,10 @@ text = "Schrodinger's Cat is a thought experiment demonstrating the measurement 
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Cat Border" parent="Spiltscreen" index="0"]
+layout_mode = 1
+anchors_preset = -1
+
 [node name="CenterContainer" type="CenterContainer" parent="Spiltscreen" index="2"]
 top_level = true
 z_as_relative = false
@@ -96,6 +100,10 @@ color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Back to Museum"
+
+[node name="Agent Border" parent="Spiltscreen" index="4"]
+layout_mode = 1
+anchors_preset = -1
 
 [node name="Debounce Timer" parent="." index="4"]
 wait_time = 0.9

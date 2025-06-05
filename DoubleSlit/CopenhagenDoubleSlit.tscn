@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2wwfv0oe44f2"]
+[gd_scene load_steps=17 format=3 uid="uid://c2wwfv0oe44f2"]
 
 [ext_resource type="Script" uid="uid://eh4oeu76yhxh" path="res://DoubleSlit/Scripts/copenhagen_double_slit.gd" id="1_imfc4"]
 [ext_resource type="Shader" uid="uid://df4bq0r8t8ie7" path="res://shaders/CHPlanes.gdshader" id="1_qcf3r"]
-[ext_resource type="PackedScene" uid="uid://fvpm24bfudny" path="res://DoubleSlit/cam_pivot.tscn" id="2_10073"]
+[ext_resource type="PackedScene" path="res://DoubleSlit/cam_pivot.tscn" id="2_10073"]
 [ext_resource type="Shader" uid="uid://bffnhyofgbfww" path="res://shaders/CopenhagenDiffraction.gdshader" id="2_jhprl"]
 [ext_resource type="Script" path="res://DoubleSlit/Scripts/UI.gd" id="5_smjlk"]
 
@@ -33,6 +33,15 @@ size = Vector3(40.0647, 7.67986, 0.9985)
 
 [sub_resource type="LabelSettings" id="LabelSettings_smjlk"]
 font_size = 14
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_smjlk"]
+
+[sub_resource type="Sky" id="Sky_obwuo"]
+sky_material = SubResource("ProceduralSkyMaterial_smjlk")
+
+[sub_resource type="Environment" id="Environment_nogqr"]
+background_mode = 2
+sky = SubResource("Sky_obwuo")
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_imfc4")
@@ -128,3 +137,6 @@ alignment = 2
 [node name="Back" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Back To Museum"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nogqr")

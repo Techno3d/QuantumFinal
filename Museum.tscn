@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dmu4cjrykv0i5"]
+[gd_scene load_steps=40 format=3 uid="uid://dmu4cjrykv0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dx57gdwwba0w6" path="res://player.tscn" id="1_40gk3"]
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
@@ -48,8 +48,15 @@ func _process(_delta):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1vajv"]
-size = Vector3(25, 1, 40)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r5u0i"]
+energy_multiplier = 1.3
+
+[sub_resource type="Sky" id="Sky_n2g1x"]
+sky_material = SubResource("ProceduralSkyMaterial_r5u0i")
+
+[sub_resource type="Environment" id="Environment_r5u0i"]
+background_mode = 2
+sky = SubResource("Sky_n2g1x")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1vajv"]
 points = PackedVector3Array(15, 0, 0, 0, 0, 0, 0, 0, 11, 15, 0, 11, 15, 8, 11, 0, 8, 11)
@@ -60,6 +67,9 @@ points = PackedVector3Array(15, 0, 0, 0, 0, 0, 0, 0, 11, 15, 0, 11, 15, 8, 11, 0
 transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276243, 0.000522903, 0.000276269, 1, 0, 0, 0)
 script = SubResource("GDScript_1vajv")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r5u0i")
+
 [node name="Player" parent="." instance=ExtResource("1_40gk3")]
 transform = Transform3D(-1.8, -0.000176062, 9.5973e-05, -0.000176115, 1.8, -0.00099447, -9.58756e-05, -0.00099448, -1.8, -0.000402161, 8.22225, -0.00227134)
 
@@ -68,12 +78,6 @@ transform = Transform3D(-0.876223, 4.13506e-05, 0.481907, -0.000224896, 1, -0.00
 
 [node name="Podium" parent="." instance=ExtResource("3_xx41a")]
 transform = Transform3D(1.16329, 0.000144839, 0.545868, -0.000156745, 1.285, -6.9199e-06, -0.545868, -6.03209e-05, 1.16329, 6.98202, 4.67472, 26.3941)
-
-[node name="Floor#StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="Floor_StaticBody3D#CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 8.7681e-12, 0, 1.12266e-12, 1, 5.82077e-11, 0, 0, 1, 0.0038456, 0.00203177, 7.35431)
-shape = SubResource("BoxShape3D_1vajv")
 
 [node name="Picture" parent="." instance=ExtResource("5_n4p8j")]
 transform = Transform3D(1, 3.41629e-11, 0, 1.12266e-12, 0.999999, 2.61934e-10, 0, 0, 1, 0.276803, 17.0872, -77.4024)
@@ -151,7 +155,7 @@ transform = Transform3D(1, -4.89112e-05, 0.000522903, 4.8769e-05, 1, 0.000276268
 transform = Transform3D(2.22802, -8.60877e-05, 0.000920309, 0.000108658, 1.76, 0.000486233, -0.00116507, -0.000486189, 1.76, -0.00774731, 0.0307925, -6.89128)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.996555, -0.0799039, -0.0221943, 0.00770165, 0.1773, -0.984127, 0.0825706, -0.980907, -0.176073, 30.7766, 18.6701, -0.0212512)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.254, 30, -20)
 
 [node name="Plants" parent="." instance=ExtResource("12_bjlqr")]
 transform = Transform3D(-7.63685e-08, 3.35376e-12, 1.745, -5.82077e-11, 1.745, -1.10845e-11, -1.745, -5.82077e-11, -7.6252e-08, 15.5279, 2.36797, 8.81316)
@@ -200,11 +204,9 @@ spot_angle = 46.7215
 
 [node name="Podium2" parent="." instance=ExtResource("3_xx41a")]
 transform = Transform3D(1, 2.41542e-10, 0, -2.31722e-10, 0.999999, 2.91038e-11, 0, 2.91038e-11, 1, -6.54292, 11.4114, -76.0063)
-visible = false
 
 [node name="Einstein" parent="." instance=ExtResource("13_jk1hh")]
 transform = Transform3D(1, 2.70632e-10, 0, -2.60826e-10, 0.999999, 2.91038e-11, 0, 2.91038e-11, 1, -6.35505, 12.2229, -75.9794)
-visible = false
 
 [node name="Picture2" parent="." instance=ExtResource("14_b6b7p")]
 transform = Transform3D(-1, -6.05382e-12, -1.50996e-07, -6.05382e-12, 1, 0, 1.50996e-07, 9.14102e-19, -1, 0.0572778, 7.00829, 29.998)

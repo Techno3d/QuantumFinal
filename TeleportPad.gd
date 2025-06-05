@@ -8,5 +8,4 @@ func _ready():
 	
 func playerEntered(body: Node3D):
 	if body.is_in_group("Player"):
-		print("AHHH")
 		get_tree().change_scene_to_packed(teleportDestination)
