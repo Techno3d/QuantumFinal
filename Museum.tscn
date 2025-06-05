@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4mnlhaicmn5f"]
+[gd_scene load_steps=15 format=3 uid="uid://c4mnlhaicmn5f"]
 
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
 [ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="3_xx41a"]
@@ -10,9 +10,29 @@
 [ext_resource type="PackedScene" uid="uid://c2kpily1mil4x" path="res://Models/marble_wall.tscn" id="8_qfqip"]
 [ext_resource type="PackedScene" uid="uid://dwwjvs8xpdjh" path="res://Models/Chair.glb" id="9_1vajv"]
 [ext_resource type="PackedScene" uid="uid://c3l3durd5q7lk" path="res://Models/Lights/lights.tscn" id="10_qfqip"]
+[ext_resource type="PackedScene" uid="uid://hnyyxwvdfa2o" path="res://player.tscn" id="11_1vajv"]
+
+[sub_resource type="GDScript" id="GDScript_1vajv"]
+resource_name = "Museum"
+script/source = "extends Node3D
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _process(_delta):
+	if Input.is_action_pressed(\"Escape\"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1vajv"]
+size = Vector3(25, 1, 40)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1vajv"]
+points = PackedVector3Array(15, 0, 0, 0, 0, 0, 0, 0, 11, 15, 0, 11, 15, 8, 11, 0, 8, 11)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276243, 0.000522903, 0.000276269, 1, 0, 0, 0)
+script = SubResource("GDScript_1vajv")
 
 [node name="Plaque" parent="." instance=ExtResource("2_upo72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.687551, 0, 10.4795)
@@ -23,11 +43,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4603, 3.65314, 9.71581)
 [node name="Floor" parent="." instance=ExtResource("4_upo72")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.90195)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 8.7681e-12, 0, 1.12266e-12, 1, 5.82077e-11, 0, 0, 1, 0.0038456, 0.00203177, 7.35431)
+shape = SubResource("BoxShape3D_1vajv")
+
 [node name="Picture" parent="." instance=ExtResource("5_n4p8j")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.27112, 6.1468, 13.822)
 
 [node name="Stairs" parent="." instance=ExtResource("6_jms4e")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.19374, 4.35889, -9.87129)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stairs"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(1, -7.5417e-11, 0, -7.51896e-11, 0.999999, -6.1118e-10, 0, 0, 1, -7.69031, -4.34218, -4.97242)
+shape = SubResource("ConvexPolygonShape3D_1vajv")
 
 [node name="cat" parent="." instance=ExtResource("7_n4p8j")]
 transform = Transform3D(0.999981, -0.00537216, -0.00287167, 0.00535515, 0.999968, -0.0058996, 0.00290328, 0.00588412, 0.999978, 4.50658, 5.56467, 9.90139)
@@ -43,3 +75,6 @@ transform = Transform3D(1, 4.66969e-11, 0, -2.42295e-11, 2, 0, 0, 0, 1, 5.2395, 
 
 [node name="Lights" parent="." instance=ExtResource("10_qfqip")]
 transform = Transform3D(-0.999194, -4.89157e-05, -0.0401486, -3.77832e-05, 1, -0.000277984, 0.0401486, -0.000276243, -0.999194, -1.1922, 12.1388, 6.01978)
+
+[node name="Player" parent="." instance=ExtResource("11_1vajv")]
+transform = Transform3D(2.5, -0.000122284, 0.00130726, 0.000121922, 2.5, 0.000690672, -0.00130729, -0.000690608, 2.5, 4.43073, 8.09106, 0.612065)
