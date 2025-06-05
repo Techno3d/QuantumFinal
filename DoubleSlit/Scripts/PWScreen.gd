@@ -11,7 +11,7 @@ func check_for_particle(area: Area3D):
 	if area.get_parent() is Move:
 		var pos = (area.get_parent() as Move).position
 		var child: Node3D = particle.instantiate()
-		child.position = pos + Vector3.UP/0.5
+		child.position = pos + Vector3.UP*randf()
 		child.scale = Vector3.ONE*1.5
 		get_tree().root.add_child(child)
-		area.get_parent().queue_free()
+		(area.get_parent() as Node3D).position = Vector3(-35, 0, 0)
