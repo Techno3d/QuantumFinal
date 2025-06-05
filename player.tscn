@@ -4,8 +4,8 @@
 resource_name = "PlayerController"
 script/source = "extends CharacterBody3D
 
-const speed : float = 750
 const sensitivity : float = 5
+var speed : float = 750
 
 @onready var camera : Camera3D = $\"Camera\"
 
@@ -19,6 +19,9 @@ func _physics_process(delta):
 	self.translate(Vector3(0, velocity.y, 0))
 
 func _process(delta):
+	if Input.is_action_pressed(\"Sprint\"):
+		speed *= 1.5
+	
 	var mouse = Input.get_last_mouse_velocity()
 	var screenSize = DisplayServer.screen_get_size()
 	var deltaAngle = (mouse.x / screenSize.x) * delta * sensitivity
