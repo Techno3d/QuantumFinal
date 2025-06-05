@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmu4cjrykv0i5"]
+[gd_scene load_steps=38 format=3 uid="uid://dmu4cjrykv0i5"]
 
 [ext_resource type="PackedScene" uid="uid://dx57gdwwba0w6" path="res://player.tscn" id="1_40gk3"]
 [ext_resource type="PackedScene" uid="uid://c3741dj7j3uk4" path="res://Models/Plaque.glb" id="2_upo72"]
@@ -25,6 +25,14 @@
 [ext_resource type="PackedScene" uid="uid://cg1adgslka0d5" path="res://teleporter.tscn" id="23_k0m5h"]
 [ext_resource type="PackedScene" uid="uid://bgtg2hr2ulpth" path="res://SchrodingerCat/schrodingercatcope.tscn" id="24_6qy77"]
 [ext_resource type="PackedScene" uid="uid://dro8gcrnojy8q" path="res://SchrodingerCat/schrodingercatpilot.tscn" id="25_h8q7c"]
+[ext_resource type="PackedScene" uid="uid://dqwdn0fqkpi3g" path="res://Einstein/QFTCH.tscn" id="26_6osv0"]
+[ext_resource type="PackedScene" uid="uid://bys42g35x0q4w" path="res://Einstein/QFTPW.tscn" id="27_pdgca"]
+[ext_resource type="PackedScene" uid="uid://bm3bmygx2us45" path="res://Models/Podium/Podium.glb" id="28_pspw5"]
+[ext_resource type="PackedScene" uid="uid://bnatyf8845olp" path="res://DoubleSlit/PWDoubleSlit.tscn" id="29_yued6"]
+[ext_resource type="PackedScene" uid="uid://c2wwfv0oe44f2" path="res://DoubleSlit/CopenhagenDoubleSlit.tscn" id="30_g1gc3"]
+[ext_resource type="PackedScene" uid="uid://2kbxfjxghfdm" path="res://DoubleSlit/CopenHagen.glb" id="31_qrk3p"]
+[ext_resource type="PackedScene" uid="uid://bsb7hcuhnur83" path="res://DoubleSlit/PilotWave.glb" id="32_jf2vu"]
+[ext_resource type="PackedScene" uid="uid://c8hsi1khlgsla" path="res://Models/Gamma/Gamma.glb" id="33_r5u0i"]
 
 [sub_resource type="GDScript" id="GDScript_1vajv"]
 resource_name = "Museum"
@@ -36,6 +44,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_pressed(\"Escape\"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if Input.is_action_pressed(\"mousePress\"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1vajv"]
@@ -44,12 +54,14 @@ size = Vector3(25, 1, 40)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1vajv"]
 points = PackedVector3Array(15, 0, 0, 0, 0, 0, 0, 0, 11, 15, 0, 11, 15, 8, 11, 0, 8, 11)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_r5u0i"]
+
 [node name="Node3D2" type="Node3D"]
 transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276243, 0.000522903, 0.000276269, 1, 0, 0, 0)
 script = SubResource("GDScript_1vajv")
 
 [node name="Player" parent="." instance=ExtResource("1_40gk3")]
-transform = Transform3D(-1.4, -0.000136937, 7.45703e-05, -0.000136978, 1.4, -0.000773477, -7.44947e-05, -0.000773484, -1.4, -0.000357951, 7.31837, -0.00202165)
+transform = Transform3D(-1.8, -0.000176062, 9.5973e-05, -0.000176115, 1.8, -0.00099447, -9.58756e-05, -0.00099448, -1.8, -0.000402161, 8.22225, -0.00227134)
 
 [node name="Plaque" parent="." instance=ExtResource("2_upo72")]
 transform = Transform3D(-0.876223, 4.13506e-05, 0.481907, -0.000224896, 1, -0.000494722, -0.481907, -0.000541865, -0.876223, -6.39237, 0.0776253, 27.1376)
@@ -225,3 +237,44 @@ teleportDestination = ExtResource("24_6qy77")
 [node name="TeleporterCatPW" parent="." instance=ExtResource("23_k0m5h")]
 transform = Transform3D(2.00486, -9.80603e-05, 0.00104835, 9.77751e-05, 2.00486, 0.00055388, -0.00104837, -0.00055383, 2.00486, -4.83381, -0.00844157, 24.3973)
 teleportDestination = ExtResource("25_h8q7c")
+
+[node name="Node3D" parent="." instance=ExtResource("26_6osv0")]
+transform = Transform3D(-0.000522947, -4.89139e-05, 1, -0.000276269, 1, 4.8769e-05, -1, -0.000276245, -0.000522961, -11.28, 7.86488, -54.132)
+
+[node name="Node3D2" parent="." instance=ExtResource("27_pdgca")]
+transform = Transform3D(-0.000522947, -4.89139e-05, 1, -0.000276269, 1, 4.8769e-05, -1, -0.000276245, -0.000522961, 12.4687, 7.866, -54.2827)
+
+[node name="Podium3" parent="." instance=ExtResource("28_pspw5")]
+transform = Transform3D(-0.000522947, -4.89139e-05, 1, -0.000276269, 1, 4.8769e-05, -1, -0.000276245, -0.000522961, -11.2807, 11.4926, -38.2344)
+
+[node name="Podium4" parent="." instance=ExtResource("28_pspw5")]
+transform = Transform3D(-0.000522947, -4.89139e-05, 1, -0.000276269, 1, 4.8769e-05, -1, -0.000276245, -0.000522961, 12.469, 11.493, -38.234)
+
+[node name="Teleporter" parent="." instance=ExtResource("23_k0m5h")]
+transform = Transform3D(2.24859, -0.000109982, 0.0011758, 0.000109662, 2.24859, 0.000621216, -0.00117583, -0.00062116, 2.24859, -8.52803, 7.83829, -37.9635)
+teleportDestination = ExtResource("29_yued6")
+
+[node name="Teleporter2" parent="." instance=ExtResource("23_k0m5h")]
+transform = Transform3D(2.2486, -0.000109982, 0.0011758, 0.000109662, 2.24859, 0.000621216, -0.00117583, -0.00062116, 2.24859, 9.42727, 7.83917, -37.9729)
+teleportDestination = ExtResource("30_g1gc3")
+
+[node name="CopenHagen" parent="." instance=ExtResource("31_qrk3p")]
+transform = Transform3D(0.000124405, -1.18039e-05, -0.241324, 6.66702e-05, 0.241324, -1.17696e-05, 0.241324, -6.66636e-05, 0.000124408, -9.08107, 12.5155, -38.1193)
+
+[node name="PilotWave" parent="." instance=ExtResource("32_jf2vu")]
+transform = Transform3D(0.0825181, -0.189199, 0.382024, 0.202127, 0.35996, 0.134612, -0.375343, 0.152248, 0.156477, 12.1585, 13.0058, -38.1282)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PilotWave"]
+transform = Transform3D(0.171278, 0.67538, 0.0179131, -0.082979, 1.11373, -0.0808444, -0.0540168, 0.430635, 0.18099, 1.68282, -1.07789, -0.154243)
+mesh = SubResource("CylinderMesh_r5u0i")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="PilotWave"]
+transform = Transform3D(0.171278, 0.67538, 0.017913, -0.0829789, 1.11373, -0.0808444, -0.0540168, 0.430635, 0.18099, -0.391113, -1.01747, -0.394791)
+mesh = SubResource("CylinderMesh_r5u0i")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="PilotWave"]
+transform = Transform3D(0.172978, 0.444935, 0.0179925, -0.0838025, 0.733715, -0.0812032, -0.0545529, 0.283699, 0.181793, -2.11205, -0.786541, -0.280655)
+mesh = SubResource("CylinderMesh_r5u0i")
+
+[node name="Gamma" parent="." instance=ExtResource("33_r5u0i")]
+transform = Transform3D(-0.000407666, -7.18916e-05, 0.788145, -0.0642206, 0.785523, 3.84342e-05, -0.785523, -0.0642205, -0.000412168, -11.4251, 14.0201, -54.3996)
