@@ -5,7 +5,7 @@ resource_name = "PlayerController"
 script/source = "extends CharacterBody3D
 
 const sensitivity : float = 5
-var speed : float = 750
+var speed : float = 900
 
 @onready var camera : Camera3D = $\"Camera\"
 

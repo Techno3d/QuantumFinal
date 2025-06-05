@@ -46,7 +46,7 @@ transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276
 script = SubResource("GDScript_1vajv")
 
 [node name="Player" parent="." instance=ExtResource("1_40gk3")]
-transform = Transform3D(1, 5.14433e-12, 0, 1.12266e-12, 1, 2.91038e-11, 0, 0, 1, -0.000273823, 5.59837, -0.00154651)
+transform = Transform3D(1.4, -1.57172e-12, 4.41762e-30, 1.57172e-12, 1.4, 0, -4.41762e-30, 4.9592e-42, 1.4, -0.000273823, 5.59837, -0.00154651)
 
 [node name="Plaque" parent="." instance=ExtResource("2_upo72")]
 transform = Transform3D(-0.876223, 4.13506e-05, 0.481907, -0.000224896, 1, -0.000494722, -0.481907, -0.000541865, -0.876223, -6.39237, 0.0776253, 27.1376)
