@@ -13,7 +13,7 @@ orientation = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfm8a"]
 render_priority = 0
 shader = ExtResource("1_jxgr0")
-shader_parameter/pos = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/pos = Vector3(0, 0, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_y48nb"]
 

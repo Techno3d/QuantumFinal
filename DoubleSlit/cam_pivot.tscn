@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://fvpm24bfudny"]
+
+[ext_resource type="Script" uid="uid://n6j35jexpbq8" path="res://DoubleSlit/Scripts/cam_pivot.gd" id="1_ksruo"]
+[ext_resource type="Shader" uid="uid://cpfl1ffuv2hwa" path="res://shaders/cam_pivot.gdshader" id="2_l147j"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2qb4k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1k0j"]
+render_priority = 0
+shader = ExtResource("2_l147j")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qb4k"]
+
+[node name="CamPivot" type="Node3D"]
+script = ExtResource("1_ksruo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Label3D" type="Label3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55259, -3.30025, -5.59995)
+pixel_size = 0.012
+text = "Rotate"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.52083, -5.67765)
+sorting_offset = -5.0
+mesh = SubResource("SphereMesh_2qb4k")
+surface_material_override/0 = SubResource("ShaderMaterial_v1k0j")
+
+[node name="Area3D" type="Area3D" parent="Camera3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/MeshInstance3D/Area3D"]
+shape = SubResource("SphereShape3D_2qb4k")

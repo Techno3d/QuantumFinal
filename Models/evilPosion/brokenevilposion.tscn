@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bphtk52lvpvov"]
+
+[ext_resource type="PackedScene" uid="uid://hfxslf18ybva" path="res://Models/evilPosion/BROKENEVILPOSION.glb" id="1_r5chw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t13pj"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.27451)
+
+[node name="BROKENEVILPOSION" instance=ExtResource("1_r5chw")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, 0, 0)
+
+[node name="Cylinder" parent="." index="0"]
+transform = Transform3D(0.370499, 0, 0, 0, 0, -0.370499, 0, 0.370499, 0, 0.00105786, 2.38419e-07, -0.00339699)
+material_override = SubResource("StandardMaterial3D_t13pj")
+
+[node name="Cylinder_003" parent="." index="1"]
+transform = Transform3D(0.229412, 0.290929, -2.78444e-08, 1.10417e-08, -4.41669e-08, -0.370499, -0.290929, 0.229412, -3.60183e-08, 0.535352, 0.0031842, 0.393894)
+material_override = SubResource("StandardMaterial3D_t13pj")
