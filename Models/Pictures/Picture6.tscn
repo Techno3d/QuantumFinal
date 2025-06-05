@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://1tsmfpbijdi8"]
+
+[ext_resource type="PackedScene" uid="uid://bn4fb8a7m48v2" path="res://Models/Pictures/Picture.glb" id="1_gp51q"]
+[ext_resource type="Material" uid="uid://3lna0jwfkheu" path="res://Models/Pictures/FrameMaterial.tres" id="2_2yiti"]
+[ext_resource type="Texture2D" uid="uid://b01x3636xey3v" path="res://Models/Pictures/Prince_Louis-Victor_de_Broglie.png" id="3_doduk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acyh8"]
+albedo_texture = ExtResource("3_doduk")
+
+[node name="Picture" instance=ExtResource("1_gp51q")]
+
+[node name="Cube_001" parent="." index="0"]
+material_override = ExtResource("2_2yiti")
+
+[node name="Cube_006" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_acyh8")

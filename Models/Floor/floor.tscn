@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdpf6ypykwwgp"]
+[gd_scene load_steps=6 format=3 uid="uid://cdpf6ypykwwgp"]
 
 [ext_resource type="PackedScene" uid="uid://b2hft08b3c5oq" path="res://Models/Floor/Floor.glb" id="1_5pte7"]
 [ext_resource type="Texture2D" uid="uid://dnime0d6ah2yy" path="res://Models/Floor/FloorDiffuse.png" id="2_3c1p6"]
@@ -6,9 +6,19 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdvv8"]
 albedo_texture = ExtResource("2_3c1p6")
+roughness = 0.48
 roughness_texture = ExtResource("3_nxa4j")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxa4j"]
+size = Vector3(2.04298, 0.548828, 3.00854)
 
 [node name="Floor" instance=ExtResource("1_5pte7")]
 
 [node name="Plane" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_fdvv8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0106277, -0.225586, 0.441528)
+shape = SubResource("BoxShape3D_nxa4j")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://vkrb3kqrlggc"]
+
+[ext_resource type="PackedScene" uid="uid://ckdj0a5rj2uww" path="res://Models/UpperFloor/UpperFloor.glb" id="1_ldyot"]
+[ext_resource type="Texture2D" uid="uid://c1uad6wkqejxx" path="res://Models/UpperFloor/UpperFloorDiffuse.png" id="2_3wmcc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxip0"]
+albedo_texture = ExtResource("2_3wmcc")
+roughness = 0.11
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40fia"]
+size = Vector3(29.4231, 9.32642, 64.0172)
+
+[node name="UpperFloor" instance=ExtResource("1_ldyot")]
+
+[node name="Cube_009" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_vxip0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_009" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_009/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098877, 0.0257568, -0.015686)
+shape = SubResource("BoxShape3D_40fia")
