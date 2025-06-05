@@ -1,21 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnatyf8845olp"]
+[gd_scene load_steps=12 format=3 uid="uid://bnatyf8845olp"]
 
 [ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jxgr0"]
 [ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/Scripts/plane.gd" id="2_lh1gt"]
 [ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://DoubleSlit/Scripts/Move.gd" id="3_s3gby"]
+[ext_resource type="Script" uid="uid://ramq2bjmld56" path="res://DoubleSlit/Scripts/PWScreen.gd" id="4_vm8iq"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pxd2j"]
 size = Vector2(40, 40)
-subdivide_width = 40
-subdivide_depth = 40
+subdivide_width = 100
+subdivide_depth = 100
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfm8a"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_jxgr0")
-shader_parameter/pos = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/pos = Vector3(5.395, 0, -2.045)
 
 [sub_resource type="SphereMesh" id="SphereMesh_y48nb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jxm5u"]
+radius = 0.501204
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxm5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qcf3r"]
+size = Vector3(40.0647, 7.67986, 0.9985)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vm8iq"]
+size = Vector3(1, 8.58014, 40.0308)
 
 [node name="Node3D" type="Node3D"]
 
@@ -24,14 +37,44 @@ mesh = SubResource("QuadMesh_pxd2j")
 surface_material_override/0 = SubResource("ShaderMaterial_dfm8a")
 script = ExtResource("2_lh1gt")
 
-[node name="Particle" type="MeshInstance3D" parent="."]
+[node name="Particle" type="MeshInstance3D" parent="." groups=["Particles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2671, 0, 0)
 mesh = SubResource("SphereMesh_y48nb")
 script = ExtResource("3_s3gby")
 
+[node name="Area3D" type="Area3D" parent="Particle"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Particle/Area3D"]
+shape = SubResource("SphereShape3D_jxm5u")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-3.43801e-08, -0.617558, 0.786526, -2.69943e-08, 0.786526, 0.617558, -1, 0, -4.37114e-08, 21.6358, 11.7967, 0)
+transform = Transform3D(1, 0, 0, 0, 0.602108, 0.798415, 0, -0.798415, 0.602108, 0, 14.7557, 20.0589)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6293, 0)
 light_energy = 10.0
 omni_range = 23.1463
+
+[node name="Barrier1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 1.97368, 12.0094, 0, 0)
+mesh = SubResource("BoxMesh_jxm5u")
+
+[node name="Barrier2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 18.681, 12.0094, 0, 10.7487)
+mesh = SubResource("BoxMesh_jxm5u")
+
+[node name="Barrier3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 18.681, 12.009, 0, -10.749)
+mesh = SubResource("BoxMesh_jxm5u")
+
+[node name="PWScreen" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.3506, 3.7372, 0)
+mesh = SubResource("BoxMesh_qcf3r")
+script = ExtResource("4_vm8iq")
+
+[node name="Area3D" type="Area3D" parent="PWScreen"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PWScreen/Area3D"]
+transform = Transform3D(1, 0, -2.62617e-11, 0, 1, 0, 2.62617e-11, 0, 1, 0, -0.479401, -0.00561523)
+shape = SubResource("BoxShape3D_vm8iq")

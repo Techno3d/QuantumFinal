@@ -1,3 +1,4 @@
+class_name Move
 extends MeshInstance3D
 
 var t: float = 0;
@@ -10,4 +11,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	t+=delta;
-	position = Vector3(10*sin(t/2), 0.5, 10*cos(t/2))
+	position.x += 5*delta
