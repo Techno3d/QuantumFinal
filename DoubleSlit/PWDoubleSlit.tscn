@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnatyf8845olp"]
+[gd_scene load_steps=8 format=3 uid="uid://bnatyf8845olp"]
 
 [ext_resource type="Shader" uid="uid://uxrybb8vvocw" path="res://shaders/plane_waves.gdshader" id="1_jxgr0"]
 [ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/Scripts/plane.gd" id="2_lh1gt"]
@@ -11,11 +11,14 @@ subdivide_depth = 100
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfm8a"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_jxgr0")
-shader_parameter/pos = Vector3(0, 0, 0)
+shader_parameter/pos = Vector3(5.395, 0, -2.045)
 
 [sub_resource type="SphereMesh" id="SphereMesh_y48nb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jxm5u"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -36,3 +39,15 @@ transform = Transform3D(1, 0, 0, 0, 0.602108, 0.798415, 0, -0.798415, 0.602108, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.6293, 0)
 light_energy = 10.0
 omni_range = 23.1463
+
+[node name="Barrier1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 1.97368, 12.0094, 0, 0)
+mesh = SubResource("BoxMesh_jxm5u")
+
+[node name="Barrier2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 18.681, 12.0094, 0, 10.7487)
+mesh = SubResource("BoxMesh_jxm5u")
+
+[node name="Barrier3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.143827, 0, 0, 0, 1, 0, 0, 0, 18.681, 12.009, 0, -10.749)
+mesh = SubResource("BoxMesh_jxm5u")
