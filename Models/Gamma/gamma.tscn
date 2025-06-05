@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkw254x1iey2o"]
+
+[ext_resource type="PackedScene" uid="uid://c8hsi1khlgsla" path="res://Models/Gamma/Gamma.glb" id="1_g1do8"]
+[ext_resource type="Texture2D" uid="uid://dnaa0yx1dqs8q" path="res://Models/Gamma/GammaDiffuse.png" id="2_ns4xs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjgyx"]
+albedo_texture = ExtResource("2_ns4xs")
+
+[node name="Gamma" instance=ExtResource("1_g1do8")]
+
+[node name="BézierCurve_002" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_vjgyx")
