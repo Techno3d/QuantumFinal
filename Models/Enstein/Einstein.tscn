@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://daqo7k4053orn"]
+
+[ext_resource type="PackedScene" uid="uid://do8js1p4t0m60" path="res://Models/Enstein/Einstein.glb" id="1_lmeu6"]
+[ext_resource type="Texture2D" uid="uid://bf2nl3otyoxfs" path="res://Models/Enstein/EnsteinDiffuse.png" id="2_vxigc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6o3g"]
+albedo_texture = ExtResource("2_vxigc")
+roughness = 0.1
+
+[node name="Einstein" instance=ExtResource("1_lmeu6")]
+
+[node name="einstein_bust01" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_j6o3g")

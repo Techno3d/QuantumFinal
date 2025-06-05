@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://3lna0jwfkheu"]
+
+[ext_resource type="Texture2D" uid="uid://c512mpnr3b1cm" path="res://Models/Pictures/PictureFrameNormal.png" id="1_lv07a"]
+
+[resource]
+albedo_color = Color(0.792157, 0.607843, 0.396078, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_lv07a")

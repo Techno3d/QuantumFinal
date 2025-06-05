@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck02me53xjlp6"]
+
+[ext_resource type="PackedScene" uid="uid://bn4fb8a7m48v2" path="res://Models/Pictures/Picture.glb" id="1_mxcaa"]
+[ext_resource type="Texture2D" uid="uid://c512mpnr3b1cm" path="res://Models/Pictures/PictureFrameNormal.png" id="2_frsyo"]
+[ext_resource type="Texture2D" uid="uid://cibkg04rma1ms" path="res://Models/Pictures/solvay.png" id="3_5qc66"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xsjt"]
+albedo_color = Color(0.792157, 0.607843, 0.396078, 1)
+normal_enabled = true
+normal_texture = ExtResource("2_frsyo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83sto"]
+albedo_texture = ExtResource("3_5qc66")
+
+[node name="Picture" instance=ExtResource("1_mxcaa")]
+
+[node name="Cube_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_3xsjt")
+
+[node name="Cube_006" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_83sto")

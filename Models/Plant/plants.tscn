@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://pqq7s66km7ch"]
+
+[ext_resource type="PackedScene" uid="uid://0mpovue560v2" path="res://Models/Plant/Plants.glb" id="1_2yl5s"]
+[ext_resource type="Texture2D" uid="uid://oklf8ujhmon6" path="res://Models/Plant/PlantPotDiffuse.png" id="2_7iq4n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsy51"]
+albedo_texture = ExtResource("2_7iq4n")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ay1ws"]
+size = Vector3(3.79388, 2.31738, 13.2589)
+
+[node name="Plants" instance=ExtResource("1_2yl5s")]
+
+[node name="Cube_010" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_nsy51")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_010" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_010/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0248108, 0.050293, 0.0317993)
+shape = SubResource("BoxShape3D_ay1ws")

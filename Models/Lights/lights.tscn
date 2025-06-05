@@ -4,14 +4,26 @@
 
 [node name="Lights" instance=ExtResource("1_vwko6")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, 0.00133944, -0.213473, 0.00158787)
-light_energy = 0.354
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.53026, 0.847835, 0, -0.847835, 0.53026, 0, 0, 0)
+light_energy = 7.576
+light_size = 0.25
+light_specular = 0.85
+spot_range = 29.2972
+spot_angle = 42.8299
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, 6.15405, -0.220649, 0)
-light_energy = 0.354
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0.53026, 0.847835, 0, -0.847835, 0.53026, 5.99731, -0.0820358, -0.308302)
+light_energy = 7.576
+light_size = 0.25
+light_specular = 0.85
+spot_range = 29.2972
+spot_angle = 42.8299
 
-[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="." index="4"]
-transform = Transform3D(1, 0, 0, 0, 0.793598, 0.608443, 0, -0.608443, 0.793598, -6.08589, -0.220649, 0)
-light_energy = 0.354
+[node name="SpotLight3D3" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 0.53026, 0.847835, 0, -0.847835, 0.53026, -6.00824, -0.0820359, -0.307667)
+light_energy = 7.576
+light_size = 0.25
+light_specular = 0.85
+spot_range = 29.2972
+spot_angle = 42.8299
