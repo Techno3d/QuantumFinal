@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://d1glw7jm7wbcn" path="res://DoubleSlit/Scripts/plane.gd" id="2_lh1gt"]
 [ext_resource type="Script" uid="uid://uaxiqy4l17hs" path="res://DoubleSlit/Scripts/Move.gd" id="3_s3gby"]
 [ext_resource type="Script" uid="uid://ramq2bjmld56" path="res://DoubleSlit/Scripts/PWScreen.gd" id="4_vm8iq"]
-[ext_resource type="Script" uid="uid://dfggx47o5rkjp" path="res://DoubleSlit/Scripts/UI.gd" id="6_7d0j3"]
+[ext_resource type="Script" path="res://DoubleSlit/Scripts/UI.gd" id="6_7d0j3"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_pxd2j"]
 size = Vector2(40, 40)
