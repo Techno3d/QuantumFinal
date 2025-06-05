@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwdn0fqkpi3g"]
+
+[ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="1_ola0m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Podium" parent="." instance=ExtResource("1_ola0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62318, 0)

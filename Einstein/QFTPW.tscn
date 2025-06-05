@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bys42g35x0q4w"]
+
+[ext_resource type="Script" uid="uid://d02y2dw4s7put" path="res://Einstein/qftPW.gd" id="1_4yuvf"]
+[ext_resource type="PackedScene" uid="uid://b31c7r5pmqkit" path="res://Models/Podium/podium.tscn" id="1_ola0m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_doe4r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5siq"]
+transparency = 1
+albedo_color = Color(1, 0.47, 0.47, 0.658824)
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_doe4r"]
+material = SubResource("StandardMaterial3D_w5siq")
+size = Vector2(2.5, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_437fg"]
+radius = 5.20911
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_4yuvf")
+
+[node name="Podium" parent="." instance=ExtResource("1_ola0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62318, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.02492, 0, 0, 0, 0.339328, 0.0304051, 0, -0.178023, 0.0579549, 0, 4.12742, 0.797014)
+mesh = SubResource("BoxMesh_doe4r")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.885531, 0.464579, 0, -0.464579, 0.885531, 0, 4.16503, 0.814342)
+text = "Coming Soon"
+font_size = 48
+
+[node name="TextBackgroundPW" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77645, 4.29986, 0)
+mesh = SubResource("QuadMesh_doe4r")
+
+[node name="Label3D" type="Label3D" parent="TextBackgroundPW"]
+sorting_offset = 1.0
+billboard = 1
+double_sided = false
+text = "Special Relativity Flavoured Bohmian Mechanics Coming Soon!"
+font_size = 48
+autowrap_mode = 2
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.36119, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_437fg")
