@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c2kpily1mil4x" path="res://Models/marble_wall.tscn" id="8_qfqip"]
 [ext_resource type="PackedScene" uid="uid://dwwjvs8xpdjh" path="res://Models/Chair.glb" id="9_1vajv"]
 [ext_resource type="PackedScene" uid="uid://c3l3durd5q7lk" path="res://Models/Lights/lights.tscn" id="10_qfqip"]
-[ext_resource type="PackedScene" uid="uid://hnyyxwvdfa2o" path="res://player.tscn" id="11_1vajv"]
+[ext_resource type="PackedScene" uid="uid://dx57gdwwba0w6" path="res://player.tscn" id="11_1vajv"]
 
 [sub_resource type="GDScript" id="GDScript_1vajv"]
 resource_name = "Museum"
@@ -30,7 +30,7 @@ size = Vector3(25, 1, 40)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1vajv"]
 points = PackedVector3Array(15, 0, 0, 0, 0, 0, 0, 0, 11, 15, 0, 11, 15, 8, 11, 0, 8, 11)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 transform = Transform3D(1, 4.87668e-05, -0.000522917, -4.89135e-05, 1, -0.000276243, 0.000522903, 0.000276269, 1, 0, 0, 0)
 script = SubResource("GDScript_1vajv")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://hnyyxwvdfa2o"]
+[gd_scene load_steps=4 format=3 uid="uid://dx57gdwwba0w6"]
 
 [sub_resource type="GDScript" id="GDScript_sh265"]
 resource_name = "PlayerController"

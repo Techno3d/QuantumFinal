@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1hqksll5nrf"]
+[gd_scene load_steps=5 format=3 uid="uid://cqoqdpgo7qd4w"]
 
 [ext_resource type="PackedScene" uid="uid://bnh5hj1glvwif" path="res://SchrodingerCat/schrodingercatbase.tscn" id="1_l1ohi"]
 [ext_resource type="Texture2D" uid="uid://dn70ffo084ojn" path="res://SchrodingerCat/Question Mark.png" id="2_mus7o"]
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
-text = "The Pilot Wave Theory solves the measurement problem because it is determinisitic; there is simply a hidden variable that makes it seem like superposition and random. In this case, it is similar to classical entanglement"
+text = "The Pilot Wave Theory solves the measurement problem because it is deterministic; there is simply a hidden variable that makes it seem like superposition and random. In this case, it is similar to classical entanglement"
 horizontal_alignment = 1
 autowrap_mode = 3
 
