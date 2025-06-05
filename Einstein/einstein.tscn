@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctyck818engji"]
+[gd_scene load_steps=7 format=3 uid="uid://ctyck818engji"]
 
 [ext_resource type="Script" uid="uid://cdkl0dket5nt" path="res://Einstein/einstein.gd" id="1_w5siq"]
+[ext_resource type="PackedScene" uid="uid://brd37a414edws" path="res://Einstein/EinsteinBust.glb" id="2_lv3kv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ci048"]
 
@@ -60,3 +61,6 @@ double_sided = false
 text = "The fact that entanglement in the Copenhagen interpretation could cause changes faster than light annoyed Einstein. It also made him disregard Bohm's revision of Pilot Wave theory, where the guiding function relied on the position of all particles at the same time, no matter how far. Locality was truly gone."
 font_size = 29
 autowrap_mode = 2
+
+[node name="EinsteinBust" parent="." instance=ExtResource("2_lv3kv")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0, 2.00066, 0)
